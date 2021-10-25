@@ -1,0 +1,20 @@
+{{ $.Scratch.Set "socialcount" 0 }}
+
+{{ range .Params.socials}}
+{{ $.Scratch.Set "socialcount" (add ($.Scratch.Get "socialcount") 1) }}
+    {{ $socialcount := $.Scratch.Get "socialcount" }}
+    {{ if ne (mod $socialcount 2) 0 }}
+    <button class="p-1.5 text-xs rounded btn-primary">
+        <a href="{{index . "link"}}" class="!text-white">
+           <i class="{{index . "icon"}}"></i> {{index . "name"}}
+        </a>
+    </button>
+    {{ else}}
+    <button class="p-1.5 text-xs rounded btn-secondary">
+        <a href="{{index . "link"}}" class="!text-white">
+           <i class="{{index . "icon"}}"></i> {{index . "name"}}
+        </a>
+    </button>
+
+    {{ end }}
+{{ end }}

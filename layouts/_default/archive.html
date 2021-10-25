@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="leading-snug">
+
+    <h1>{{.Title}}</h1>
+        {{ range (where .Site.RegularPages "Type" "post").GroupByDate "2006" }}
+        <h2>{{.Key}}</h2>
+        {{ range .Pages}}
+        <li class="!list-none clear-both">
+            <a href="{{.RelPermalink}}">
+                {{.Title}}
+            </a>
+            <span class="float-right">
+                {{.Date.Format "02 Jan."}}
+            </span>
+        </li>
+        {{ end }}
+        {{ end }}
+</div>
+{{ end }}

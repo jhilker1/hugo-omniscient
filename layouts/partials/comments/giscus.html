@@ -1,0 +1,14 @@
+{{ with .Site.Params.giscus}}
+<script src="https://giscus.app/client.js"
+        data-repo="{{index . "repo"}}"
+        data-repo-id="{{ index . "repo-id"}}"
+        data-category="{{index . "category"}}"
+        data-category-id="{{index . "category-id"}}"
+        data-mapping="{{index . "map"}}"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="{{index . "theme"}}"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}

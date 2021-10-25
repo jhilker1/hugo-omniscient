@@ -1,0 +1,54 @@
+{{ define "main" }}
+{{ if ne .Type "post"}}
+<h1>{{.Title}}</h1>
+{{ .Content}}
+{{ else }}
+<div class="grid-cols-1 grid lg:grid-cols-[3fr,1fr]">
+<article>
+    {{partial "post/header" .}}
+    {{ if or (eq .Params.enableToC true) (eq .Site.Params.enableToC true)}}
+     <details class="mt-2 mb-0 lg:hidden">
+        <summary><strong class="ml-1 underline">Table of Contents</strong></summary>
+        {{ .TableOfContents }}
+    </details>
+   {{ end }}
+    {{.Content}}
+    <div class="lg:hidden">
+        {{ $related := .Site.RegularPages.Related . | first 5 }}
+        {{ with $related }}
+        <details>
+            <summary><strong>See Also</strong></summary>
+            {{ range . }}
+            <li class="ml-3 text-sm list-none"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </details>
+    {{ end }}
+    </div>
+</article>
+<aside class="h-auto p-5 mobile:hidden">
+    {{ if or (eq .Params.enableToC true) (eq .Site.Params.enableToC true)}}
+    <details class="border-b-2 border-gray-400 dark:border-gray-700">
+        <summary class="mb-3"><strong class="ml-1 underline">Table of Contents</strong></summary>
+        {{ .TableOfContents }}
+    </details>
+    {{ end }}
+    {{ $related := .Site.RegularPages.Related . | first 5 }}
+        {{ with $related }}
+    <h3 class="mb-0">See Also</h3>
+	    {{ range . }}
+	    <li class="ml-3 list-none "><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+	    {{ end }}
+    {{ end }}
+</aside>
+
+</div>
+    {{ if eq .Site.Params.commentSrc "utterances"}}
+    {{ partial "comments/utterances.html" . }}
+    {{ end }}
+
+    {{ if eq .Site.Params.commentSrc "giscus"}}
+    {{ partial "comments/giscus.html" . }}
+    {{ end }}
+
+{{ end }}
+{{ end }}

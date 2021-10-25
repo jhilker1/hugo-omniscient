@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{.Site.LanguageCode}}" x-data="{darkMode: false}"
+    x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => JSON.stringify(localStorage.setItem('darkMode', value)))"
+    :class="{'dark': darkMode === true}">
+{{- partial "head.html" . -}}
+
+<body>
+    <div
+        class="grid h-screen grid-areas-mobile grid-rows-layout lg:grid-areas-desktop grid-cols-layout">
+        {{ partial "header.html" . }}
+        {{ partial "sidebar/fixed.html" . }}
+        <main class="px-3 pt-3 overflow-y-scroll grid-in-main !max-w-none markdown-sm 2xl:markdown-lg markdown-royal scrollbar-thin dark:markdown-dark scroll-smooth motion-reduce:scroll-auto">
+            {{ block "main" . }}
+            {{ end }}
+        </main>
+        {{ partial "footer.html" .}}
+    </div>
+     {{ partial "sidebar/overlay.html" . }}
+</body>
+
+</html>

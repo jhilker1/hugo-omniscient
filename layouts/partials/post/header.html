@@ -1,0 +1,39 @@
+<header>
+<h1>{{.Title}}</h1> 
+    <div class="space-x-3">
+        <span>
+            <i class=" fas fa-calendar"></i>
+            <b>Posted: </b> {{.Date.Format "02 Jan. 2006"}}
+        </span>
+        <span>
+            <i class="fas fa-stopwatch"></i>
+            {{ .ReadingTime }}-minute read
+        </span>
+        {{ if ne .Params.Lastmod .Params.Date}}
+        <span>
+            <i class=" fas fa-calendar"></i>
+            <b>Last Updated: </b> {{.Lastmod.Format "02 Jan. 2006"}}
+        </span>
+        {{ end }}
+    </div>
+    {{ $linkbase := .Site.BaseURL}}
+    <div class="mt-2">
+        <i class="fas fa-folder-open">
+        </i>
+        <b>Categories: </b>
+
+        {{ range .Params.categories}}
+            {{ $item := (. | urlize)}}
+            <a href={{printf "%s/%s/%s" $linkbase "categories"  $item | relLangURL}}>{{.}}</a>
+        {{ end }}
+    </div>
+    <div class="mt-2">
+        <i class="fas fa-tags">
+        </i>
+        <b>Tagged: </b>
+        {{ range .Params.tags}}
+            {{ $item := (. | urlize)}}
+            <a href={{printf "%s/%s/%s" $linkbase "tags"  $item | relLangURL}}>#{{.}}</a>
+        {{ end }}
+    </div>
+</header>

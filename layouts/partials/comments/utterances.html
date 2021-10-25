@@ -1,0 +1,9 @@
+{{ with .Site.Params.utterances}}
+<script src="https://utteranc.es/client.js"
+        repo="{{index . "repo"}}"
+        issue-term="{{index . "issueMap"}}"
+        theme="{{index . "theme"}}"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}

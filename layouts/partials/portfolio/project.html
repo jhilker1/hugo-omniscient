@@ -1,0 +1,46 @@
+{{ $.Scratch.Set "langcount" 0 }}
+<div class="p-3">
+    <!-- Title and Featured Badge -->
+    <div class="flex w-full">
+        <span class="text-2xl font-bold">{{.Title}}</span> 
+        {{ if isset .Params "featured" }}
+        <span class="p-1 ml-auto mr-0 text-sm text-white rounded-sm bg-royal-600">Featured</span>
+        {{ end }}
+    </div>
+     <!-- Project Langs -->
+         <div class="mt-2 space-x-1">
+            {{ range .Params.tags }}
+                {{ $.Scratch.Set "langcount" (add ($.Scratch.Get "langcount") 1) }}
+                    {{ $langcount := $.Scratch.Get "langcount" }}
+                        {{ if eq (mod $langcount 2) 0 }}                        
+                        <span class="border-brown-600 p-1  text-white rounded border-[1px] text-xs  bg-brown-600">{{.}}</span>
+                        {{ else }}
+                        <span class="border-royal-600 p-1  text-white rounded border-[1px] text-xs  bg-royal-600">{{.}}</span>
+                    {{ end }}
+            {{ end }}
+            </div>
+            <div class="block">
+                {{.Content | truncate 200}}
+            </div>
+             <!-- Project Links -->
+            <div class="space-x-1">
+                
+                <a href="{{.Page.Params.projectSite}}" class="!text-white p-1.5 text-xs rounded btn-primary">
+                    <i class="fas fa-globe"></i>&nbsp;Website
+                </a>
+            </button>
+            {{ with .Params.repo}}
+                <a href="{{index . "link"}}" class="!text-white p-1.5 text-xs rounded btn-primary">
+                    <i class="{{index . "icon"}}"></i>&nbsp;{{index . "name"}}
+                </a>
+            {{ end }}
+                
+            {{ if isset .Params "socials"}}
+            {{ range .Params.socials}}
+        <a href="{{index . "link"}}" class="!text-white p-1.5 text-xs rounded btn-primary">
+           <i class="{{index . "icon"}}"></i> {{index . "name"}}
+        </a>
+            {{ end }}
+            {{ end}}
+            </div>
+</div>     

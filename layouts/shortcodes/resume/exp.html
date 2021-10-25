@@ -1,0 +1,20 @@
+<div class="my-2.5 py-2.5 last:border-0 border-b-2 border-gray-300 dark:border-gray-700">
+    <span class="text-xl text-gray-900 dark:text-gray-100 font-serif tracking-[1px] my-5">
+        {{with .Get "name"}}
+        {{.}}
+        {{end}}
+    </span>
+    <br class="m-0 lg:hidden" />
+    <span class="mr-3 lg:float-right">
+        {{dateFormat "Jan 2006" (.Get "start")}} - {{if .Get "end"}}{{ dateFormat "Jan 2006" (.Get
+        "end")}}{{else}}Present{{end}}
+    </span>
+    <br class="mb-1" />
+    <span class="mt-2 mb-3">
+        {{ with .Get "place"}}{{ . }}{{ end }} - {{ with .Get "city"}}{{ . }}{{ end }}
+    </span>
+    <br>
+    <div class="mt-3">
+    {{ .Inner | markdownify }}
+    </div>
+</div>

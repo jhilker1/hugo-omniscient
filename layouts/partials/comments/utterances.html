@@ -3,6 +3,9 @@
         repo="{{index . "repo"}}"
         issue-term="{{index . "issueMap"}}"
         theme="{{index . "theme"}}"
+	{{ with (index . "label") }}
+	label="{{.}}"
+	{{ end }}
         crossorigin="anonymous"
         async>
 </script>

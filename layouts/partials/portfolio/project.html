@@ -1,10 +1,12 @@
 {{ $.Scratch.Set "langcount" 0 }}
 <div class="p-3">
     <!-- Title and Featured Badge -->
-    <div class="flex w-full">
+    <div class="lg:flex w-full items-center">
         <span class="text-2xl font-bold">{{.Title}}</span> 
         {{ if isset .Params "featured" }}
-        <span class="p-1 ml-auto mr-0 text-sm text-white rounded-sm bg-royal-600">Featured</span>
+        <div class="mt-2 lg:mt-0 lg:ml-auto mr-0 rounded-sm p-1 bg-royal-600 w-max">
+          <span class="text-sm text-white">Featured</span>
+        </div>
         {{ end }}
     </div>
      <!-- Project Langs -->
@@ -13,9 +15,9 @@
                 {{ $.Scratch.Set "langcount" (add ($.Scratch.Get "langcount") 1) }}
                     {{ $langcount := $.Scratch.Get "langcount" }}
                         {{ if eq (mod $langcount 2) 0 }}                        
-                        <span class="border-brown-600 p-1  text-white rounded border-[1px] text-xs  bg-brown-600">{{.}}</span>
+                        <span class="border-brown-600 p-1 text-white rounded border-[1px] text-xs  bg-brown-600">{{.}}</span>
                         {{ else }}
-                        <span class="border-royal-600 p-1  text-white rounded border-[1px] text-xs  bg-royal-600">{{.}}</span>
+                        <span class="border-royal-600 p-1 text-white rounded border-[1px] text-xs  bg-royal-600">{{.}}</span>
                     {{ end }}
             {{ end }}
             </div>

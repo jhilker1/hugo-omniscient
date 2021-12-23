@@ -1,6 +1,10 @@
 {{ define "main" }}
-    <div class="divide-y-2 divide-gray-400 dark:divide-gray-700">
+    <div class="space-y-2 divide-y-2 divide-slate-400 dark:divide-slate-700">
     {{range (where (where .Site.RegularPages "Type" "project") ".Params.featured" "==" true).ByWeight }}
+    {{ partial "portfolio/project.html" .}}
+    {{ end }}
+    
+    {{range (where (where .Site.RegularPages "Type" "project") ".Params.featured" "!=" true).ByWeight }}
     {{ partial "portfolio/project.html" .}}
     {{ end }}
     </div>

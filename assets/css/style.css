@@ -1435,6 +1435,10 @@ li[role="doc-endnote"]::marker{
   margin-bottom: 1rem;
 }
 
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
 .block{
   display: block;
 }
@@ -1745,19 +1749,14 @@ li[role="doc-endnote"]::marker{
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.bg-royal-500{
+.bg-royal-600{
   --tw-bg-opacity: 1;
-  background-color: rgb(46 139 192 / var(--tw-bg-opacity));
+  background-color: rgb(36 109 151 / var(--tw-bg-opacity));
 }
 
 .bg-brown-600{
   --tw-bg-opacity: 1;
   background-color: rgb(130 97 56 / var(--tw-bg-opacity));
-}
-
-.bg-royal-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(36 109 151 / var(--tw-bg-opacity));
 }
 
 .bg-slate-300{
@@ -1801,14 +1800,6 @@ li[role="doc-endnote"]::marker{
 
 .p-2{
   padding: 0.5rem;
-}
-
-.p-0\.5{
-  padding: 0.125rem;
-}
-
-.p-0{
-  padding: 0px;
 }
 
 .px-3{
@@ -2348,5 +2339,11 @@ li[role="doc-endnote"]::marker{
   .\32xl\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (max-width: 1023px){
+  .mobile\:hidden{
+    display: none;
   }
 }

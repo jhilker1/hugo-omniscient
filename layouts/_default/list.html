@@ -2,11 +2,11 @@
 <div class="leading-snug">
 
     <h1>{{.Title}}</h1>
-    <ul class='!list-none'>
+    <ul>
     {{ range .Data.Pages.GroupByDate "2006"}} 
         <h2>{{.Key}}</h2>
         {{ range .Pages}}
-        <li class="!list-none clear-both">
+        <li class="clear-both">
             <a href="{{.RelPermalink}}">
                 {{.Title}}
             </a>

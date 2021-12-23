@@ -34,7 +34,7 @@
     {{ end }}
     {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ with $related }}
-    <h3 class="mb-0">See Also</h3>
+    <h3 class="mb-1">See Also</h3>
 	    {{ range . }}
 	    <li class="ml-3 list-none "><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
 	    {{ end }}

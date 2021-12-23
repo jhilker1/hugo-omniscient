@@ -61,7 +61,10 @@ module.exports = {
         mono: ['Iosevka Mono Web', defaultTheme.fontFamily.mono],
         serif: ['"Iosevka Slab Web"', defaultTheme.fontFamily.serif],
         sans: ['"Iosevka Sans Web"', defaultTheme.fontFamily.sans]
-      } 
+      },
+         screens: {
+        mobile: { max: '1023px'}
+      },
     },
   },
   plugins: [

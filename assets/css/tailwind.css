@@ -15,10 +15,8 @@
     }
 
     body {
-        @apply min-h-screen antialiased bg-gray-100 dark:bg-gray-900;
+        @apply min-h-screen antialiased bg-gray-100 dark:bg-gray-900 scrollbar-thin;
     }
-
-
     code,pre {
         @apply !text-[12px];
     }
@@ -60,4 +58,7 @@
         @apply text-white transition-colors duration-150 transform bg-brown-600 hover:bg-brown-700 dark:hover:bg-brown-400;
     }
 
+   #top {
+       @apply absolute top-0;
+   }
 }

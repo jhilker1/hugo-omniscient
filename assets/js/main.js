@@ -8,5 +8,5 @@ const toggleMobileMenu = () => {
 }
 
 const scrollToTop = () => {
-    document.querySelector('#hero').scrollIntoView()
+    window.scrollTo(0,0);
 }

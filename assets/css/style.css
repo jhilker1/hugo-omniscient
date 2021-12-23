@@ -6,85 +6,68 @@
 
 @import url("/fonts/iosevka-sans.css");
 
-/*  ! tailwindcss v2.2.16 | MIT License | https://tailwindcss.com */
-
-/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*  ! tailwindcss v3.0.7 | MIT License | https://tailwindcss.com */
 
 /*
-Document
-========
-*/
-
-/**
-Use a better box model (opinionated).
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
 *,
 ::before,
 ::after {
   box-sizing: border-box;
-}
-
-/**
-Use a more readable tab size (opinionated).
-*/
-
-html {
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-     tab-size: 4;
-}
-
-/**
-1. Correct the line height in all browsers.
-2. Prevent adjustments of font size after orientation changes in iOS.
-*/
-
-html {
-  line-height: 1.15;
   /* 1 */
-  -webkit-text-size-adjust: 100%;
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: currentColor;
   /* 2 */
 }
 
+::before,
+::after {
+  --tw-content: '';
+}
+
 /*
-Sections
-========
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
 */
 
-/**
-Remove the margin in all browsers.
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: "Iosevka Sans Web", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 
 body {
   margin: 0;
-}
-
-/**
-Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-*/
-
-body {
-  font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
 }
 
 /*
-Grouping content
-================
-*/
-
-/**
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
 */
 
 hr {
@@ -92,14 +75,11 @@ hr {
   /* 1 */
   color: inherit;
   /* 2 */
+  border-top-width: 1px;
+  /* 3 */
 }
 
 /*
-Text-level semantics
-====================
-*/
-
-/**
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
@@ -108,7 +88,30 @@ abbr[title] {
           text-decoration: underline dotted;
 }
 
-/**
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
 Add the correct font weight in Edge and Safari.
 */
 
@@ -117,28 +120,22 @@ strong {
   font-weight: bolder;
 }
 
-/**
-1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-2. Correct the odd 'em' font sizing in all browsers.
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
 */
 
 code,
 kbd,
 samp,
 pre {
-  font-family:
-		ui-monospace,
-		SFMono-Regular,
-		Consolas,
-		'Liberation Mono',
-		Menlo,
-		monospace;
+  font-family: Iosevka Mono Web, ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
 }
 
-/**
+/*
 Add the correct font size in all browsers.
 */
 
@@ -146,8 +143,8 @@ small {
   font-size: 80%;
 }
 
-/**
-Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 */
 
 sub,
@@ -167,13 +164,9 @@ sup {
 }
 
 /*
-Tabular data
-============
-*/
-
-/**
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
 */
 
 table {
@@ -181,16 +174,14 @@ table {
   /* 1 */
   border-color: inherit;
   /* 2 */
+  border-collapse: collapse;
+  /* 3 */
 }
 
 /*
-Forms
-=====
-*/
-
-/**
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
 */
 
 button,
@@ -202,25 +193,28 @@ textarea {
   /* 1 */
   font-size: 100%;
   /* 1 */
-  line-height: 1.15;
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
   /* 1 */
   margin: 0;
   /* 2 */
+  padding: 0;
+  /* 3 */
 }
 
-/**
+/*
 Remove the inheritance of text transform in Edge and Firefox.
-1. Remove the inheritance of text transform in Firefox.
 */
 
 button,
 select {
-  /* 1 */
   text-transform: none;
 }
 
-/**
-Correct the inability to style clickable types in iOS and Safari.
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
 */
 
 button,
@@ -228,43 +222,30 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
 }
 
-/**
-Remove the inner border and padding in Firefox.
-*/
-
-::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
-Restore the focus styles unset by the previous rule.
+/*
+Use the modern Firefox focus style for all focusable elements.
 */
 
 :-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: auto;
 }
 
-/**
-Remove the additional ':invalid' styles in Firefox.
-See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
 :-moz-ui-invalid {
   box-shadow: none;
 }
 
-/**
-Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
-*/
-
-legend {
-  padding: 0;
-}
-
-/**
+/*
 Add the correct vertical alignment in Chrome and Firefox.
 */
 
@@ -272,7 +253,7 @@ progress {
   vertical-align: baseline;
 }
 
-/**
+/*
 Correct the cursor style of increment and decrement buttons in Safari.
 */
 
@@ -281,7 +262,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
   height: auto;
 }
 
-/**
+/*
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
@@ -293,7 +274,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
   /* 2 */
 }
 
-/**
+/*
 Remove the inner padding in Chrome and Safari on macOS.
 */
 
@@ -301,9 +282,9 @@ Remove the inner padding in Chrome and Safari on macOS.
   -webkit-appearance: none;
 }
 
-/**
+/*
 1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to 'inherit' in Safari.
+2. Change font properties to `inherit` in Safari.
 */
 
 ::-webkit-file-upload-button {
@@ -314,11 +295,6 @@ Remove the inner padding in Chrome and Safari on macOS.
 }
 
 /*
-Interactive
-===========
-*/
-
-/*
 Add the correct display in Chrome and Safari.
 */
 
@@ -326,15 +302,9 @@ summary {
   display: list-item;
 }
 
-/**
- * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
- * A thin layer on top of normalize.css that provides a starting point more
- * suitable for web applications.
- */
-
-/**
- * Removes the default spacing and border for appropriate elements.
- */
+/*
+Removes the default spacing and border for appropriate elements.
+*/
 
 blockquote,
 dl,
@@ -352,221 +322,80 @@ pre {
   margin: 0;
 }
 
-button {
-  background-color: transparent;
-  background-image: none;
-}
-
 fieldset {
   margin: 0;
   padding: 0;
 }
 
+legend {
+  padding: 0;
+}
+
 ol,
-ul {
+ul,
+menu {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/**
- * Tailwind custom reset styles
- */
-
-/**
- * 1. Use the user's configured `sans` font-family (with Tailwind's default
- *    sans-serif font stack as a fallback) as a sane default.
- * 2. Use Tailwind's default "normal" line-height so the user isn't forced
- *    to override it to ensure consistency even when using the default theme.
- */
-
-html {
-  font-family: "Iosevka Sans Web", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  /* 1 */
-  line-height: 1.5;
-  /* 2 */
-}
-
-/**
- * Inherit font-family and line-height from `html` so users can set them as
- * a class directly on the `html` element.
- */
-
-body {
-  font-family: inherit;
-  line-height: inherit;
-}
-
-/**
- * 1. Prevent padding and border from affecting element width.
- *
- *    We used to set this in the html element and inherit from
- *    the parent element for everything else. This caused issues
- *    in shadow-dom-enhanced elements like <details> where the content
- *    is wrapped by a div with box-sizing set to `content-box`.
- *
- *    https://github.com/mozdevs/cssremedy/issues/4
- *
- *
- * 2. Allow adding a border to an element by just adding a border-width.
- *
- *    By default, the way the browser specifies that an element should have no
- *    border is by setting it's border-style to `none` in the user-agent
- *    stylesheet.
- *
- *    In order to easily add borders to elements by just setting the `border-width`
- *    property, we change the default border-style for all elements to `solid`, and
- *    use border-width to hide them instead. This way our `border` utilities only
- *    need to set the `border-width` property instead of the entire `border`
- *    shorthand, making our border utilities much more straightforward to compose.
- *
- *    https://github.com/tailwindcss/tailwindcss/pull/116
- */
-
-*,
-::before,
-::after {
-  box-sizing: border-box;
-  /* 1 */
-  border-width: 0;
-  /* 2 */
-  border-style: solid;
-  /* 2 */
-  border-color: currentColor;
-  /* 2 */
-}
-
 /*
- * Ensure horizontal rules are visible by default
- */
-
-hr {
-  border-top-width: 1px;
-}
-
-/**
- * Undo the `border-style: none` reset that Normalize applies to images so that
- * our `border-{width}` utilities have the expected effect.
- *
- * The Normalize reset is unnecessary for us since we default the border-width
- * to 0 on all elements.
- *
- * https://github.com/tailwindcss/tailwindcss/issues/362
- */
-
-img {
-  border-style: solid;
-}
+Prevent resizing textareas horizontally by default.
+*/
 
 textarea {
   resize: vertical;
 }
 
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
 input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1;
+  /* 1 */
   color: #9ca3af;
+  /* 2 */
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   opacity: 1;
+  /* 1 */
   color: #9ca3af;
+  /* 2 */
 }
 
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
+  /* 1 */
   color: #9ca3af;
+  /* 2 */
 }
+
+/*
+Set the default cursor for buttons.
+*/
 
 button,
 [role="button"] {
   cursor: pointer;
 }
 
-/**
- * Override legacy focus reset from Normalize with modern Firefox focus styles.
- *
- * This is actually an improvement over the new defaults in Firefox in our testing,
- * as it triggers the better focus styles even for links, which still use a dotted
- * outline in Firefox by default.
- */
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
 
-:-moz-focusring {
-  outline: auto;
+:disabled {
+  cursor: default;
 }
 
-table {
-  border-collapse: collapse;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-/**
- * Reset links to optimize for opt-in styling instead of
- * opt-out.
- */
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-/**
- * Reset form element properties that are easy to forget to
- * style explicitly so you don't inadvertently introduce
- * styles that deviate from your design system. These styles
- * supplement a partial reset that is already applied by
- * normalize.css.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
-}
-
-/**
- * Use the configured 'mono' font family for elements that
- * are expected to be rendered with a monospace font, falling
- * back to the system monospace stack if there is no configured
- * 'mono' font family.
- */
-
-pre,
-code,
-kbd,
-samp {
-  font-family: Iosevka Mono Web, ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-}
-
-/**
- * 1. Make replaced elements `display: block` by default as that's
- *    the behavior you want almost all of the time. Inspired by
- *    CSS Remedy, with `svg` added as well.
- *
- *    https://github.com/mozdevs/cssremedy/issues/14
- * 
- * 2. Add `vertical-align: middle` to align replaced elements more
- *    sensibly by default when overriding `display` by adding a
- *    utility like `inline`.
- *
- *    This can trigger a poorly considered linting error in some
- *    tools but is included by design.
- * 
- *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
- */
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
 
 img,
 svg,
@@ -582,12 +411,9 @@ object {
   /* 2 */
 }
 
-/**
- * Constrain images and videos to the parent width and preserve
- * their intrinsic aspect ratio.
- *
- * https://github.com/mozdevs/cssremedy/issues/14
- */
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
 
 img,
 video {
@@ -595,38 +421,12 @@ video {
   height: auto;
 }
 
-/**
- * Ensure the default browser behavior of the `hidden` attribute.
- */
+/*
+Ensure the default browser behavior of the `hidden` attribute.
+*/
 
 [hidden] {
   display: none;
-}
-
-*, ::before, ::after{
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-border-opacity: 1;
-  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
-  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
-  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
-  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
-  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
-  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
-  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
-  --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 *{
@@ -647,14 +447,43 @@ html{
 body{
   min-height: 100vh;
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --scrollbar-track: initial;
+  --scrollbar-thumb: initial;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  overflow: overlay;
+}
+
+body.overflow-x-hidden{
+  overflow-x: hidden;
+}
+
+body.overflow-y-hidden{
+  overflow-y: hidden;
+}
+
+body::-webkit-scrollbar-track{
+  background-color: var(--scrollbar-track);
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: var(--scrollbar-thumb);
+}
+
+body{
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
 }
 
 .dark body{
   --tw-bg-opacity: 1;
-  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 code, pre{
@@ -678,124 +507,141 @@ li[role="doc-endnote"]::marker{
   list-style-type: none !important;
 }
 
-.markdown{
-  color: #374151;
+*, ::before, ::after{
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.prose{
+  color: var(--tw-prose-body);
   max-width: 65ch;
 }
 
-.markdown [class~="lead"]{
-  color: #4b5563;
+.prose :where([class~="lead"]):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-lead);
   font-size: 1.25em;
   line-height: 1.6;
   margin-top: 1.2em;
   margin-bottom: 1.2em;
 }
 
-.markdown a{
-  color: #111827;
+.prose :where(a):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-links);
   text-decoration: underline;
   font-weight: 500;
 }
 
-.markdown strong{
-  color: #111827;
+.prose :where(strong):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-bold);
   font-weight: 600;
 }
 
-.markdown ol[type="A"]{
-  --list-counter-style: upper-alpha;
+.prose :where(ol):not(:where([class~="not-prose"] *)){
+  list-style-type: decimal;
+  padding-left: 1.625em;
 }
 
-.markdown ol[type="a"]{
-  --list-counter-style: lower-alpha;
+.prose :where(ol[type="A"]):not(:where([class~="not-prose"] *)){
+  list-style-type: upper-alpha;
 }
 
-.markdown ol[type="A" s]{
-  --list-counter-style: upper-alpha;
+.prose :where(ol[type="a"]):not(:where([class~="not-prose"] *)){
+  list-style-type: lower-alpha;
 }
 
-.markdown ol[type="a" s]{
-  --list-counter-style: lower-alpha;
+.prose :where(ol[type="A" s]):not(:where([class~="not-prose"] *)){
+  list-style-type: upper-alpha;
 }
 
-.markdown ol[type="I"]{
-  --list-counter-style: upper-roman;
+.prose :where(ol[type="a" s]):not(:where([class~="not-prose"] *)){
+  list-style-type: lower-alpha;
 }
 
-.markdown ol[type="i"]{
-  --list-counter-style: lower-roman;
+.prose :where(ol[type="I"]):not(:where([class~="not-prose"] *)){
+  list-style-type: upper-roman;
 }
 
-.markdown ol[type="I" s]{
-  --list-counter-style: upper-roman;
+.prose :where(ol[type="i"]):not(:where([class~="not-prose"] *)){
+  list-style-type: lower-roman;
 }
 
-.markdown ol[type="i" s]{
-  --list-counter-style: lower-roman;
+.prose :where(ol[type="I" s]):not(:where([class~="not-prose"] *)){
+  list-style-type: upper-roman;
 }
 
-.markdown ol[type="1"]{
-  --list-counter-style: decimal;
+.prose :where(ol[type="i" s]):not(:where([class~="not-prose"] *)){
+  list-style-type: lower-roman;
 }
 
-.markdown ol > li{
-  position: relative;
-  padding-left: 1.75em;
+.prose :where(ol[type="1"]):not(:where([class~="not-prose"] *)){
+  list-style-type: decimal;
 }
 
-.markdown ol > li::before{
-  content: counter(list-item, var(--list-counter-style, decimal)) ".";
-  position: absolute;
+.prose :where(ul):not(:where([class~="not-prose"] *)){
+  list-style-type: disc;
+  padding-left: 1.625em;
+}
+
+.prose :where(ol > li):not(:where([class~="not-prose"] *))::marker{
   font-weight: 400;
-  color: #6b7280;
-  left: 0;
+  color: var(--tw-prose-counters);
 }
 
-.markdown ul > li{
-  position: relative;
-  padding-left: 1.75em;
+.prose :where(ul > li):not(:where([class~="not-prose"] *))::marker{
+  color: var(--tw-prose-bullets);
 }
 
-.markdown ul > li::before{
-  content: "";
-  position: absolute;
-  background-color: #d1d5db;
-  border-radius: 50%;
-  width: 0.375em;
-  height: 0.375em;
-  top: calc(0.875em - 0.1875em);
-  left: 0.25em;
-}
-
-.markdown hr{
-  border-color: #e5e7eb;
+.prose :where(hr):not(:where([class~="not-prose"] *)){
+  border-color: var(--tw-prose-hr);
   border-top-width: 1px;
   margin-top: 3em;
   margin-bottom: 3em;
 }
 
-.markdown blockquote{
+.prose :where(blockquote):not(:where([class~="not-prose"] *)){
   font-weight: 500;
   font-style: italic;
-  color: #111827;
+  color: var(--tw-prose-quotes);
   border-left-width: 0.25rem;
-  border-left-color: #e5e7eb;
+  border-left-color: var(--tw-prose-quote-borders);
   quotes: "\201C""\201D""\2018""\2019";
   margin-top: 1.6em;
   margin-bottom: 1.6em;
   padding-left: 1em;
 }
 
-.markdown blockquote p:first-of-type::before{
+.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before{
   content: open-quote;
 }
 
-.markdown blockquote p:last-of-type::after{
+.prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after{
   content: close-quote;
 }
 
-.markdown h1{
-  color: #111827;
+.prose :where(h1):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-headings);
   font-weight: 800;
   font-size: 2.25em;
   margin-top: 0;
@@ -803,8 +649,12 @@ li[role="doc-endnote"]::marker{
   line-height: 1.1111111;
 }
 
-.markdown h2{
-  color: #111827;
+.prose :where(h1 strong):not(:where([class~="not-prose"] *)){
+  font-weight: 900;
+}
+
+.prose :where(h2):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-headings);
   font-weight: 700;
   font-size: 1.5em;
   margin-top: 2em;
@@ -812,8 +662,12 @@ li[role="doc-endnote"]::marker{
   line-height: 1.3333333;
 }
 
-.markdown h3{
-  color: #111827;
+.prose :where(h2 strong):not(:where([class~="not-prose"] *)){
+  font-weight: 800;
+}
+
+.prose :where(h3):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-headings);
   font-weight: 600;
   font-size: 1.25em;
   margin-top: 1.6em;
@@ -821,43 +675,57 @@ li[role="doc-endnote"]::marker{
   line-height: 1.6;
 }
 
-.markdown h4{
-  color: #111827;
+.prose :where(h3 strong):not(:where([class~="not-prose"] *)){
+  font-weight: 700;
+}
+
+.prose :where(h4):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-headings);
   font-weight: 600;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   line-height: 1.5;
 }
 
-.markdown figure figcaption{
-  color: #6b7280;
+.prose :where(h4 strong):not(:where([class~="not-prose"] *)){
+  font-weight: 700;
+}
+
+.prose :where(figure > *):not(:where([class~="not-prose"] *)){
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.prose :where(figcaption):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-captions);
   font-size: 0.875em;
   line-height: 1.4285714;
   margin-top: 0.8571429em;
 }
 
-.markdown code{
-  color: #111827;
+.prose :where(code):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-code);
   font-weight: 600;
   font-size: 0.875em;
 }
 
-.markdown code::before{
+.prose :where(code):not(:where([class~="not-prose"] *))::before{
   content: "`";
 }
 
-.markdown code::after{
+.prose :where(code):not(:where([class~="not-prose"] *))::after{
   content: "`";
 }
 
-.markdown a code{
-  color: #111827;
+.prose :where(a code):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-links);
 }
 
-.markdown pre{
-  color: #e5e7eb;
-  background-color: #1f2937;
+.prose :where(pre):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-pre-code);
+  background-color: var(--tw-prose-pre-bg);
   overflow-x: auto;
+  font-weight: 400;
   font-size: 0.875em;
   line-height: 1.7142857;
   margin-top: 1.7142857em;
@@ -869,27 +737,27 @@ li[role="doc-endnote"]::marker{
   padding-left: 1.1428571em;
 }
 
-.markdown pre code{
+.prose :where(pre code):not(:where([class~="not-prose"] *)){
   background-color: transparent;
   border-width: 0;
   border-radius: 0;
   padding: 0;
-  font-weight: 400;
+  font-weight: inherit;
   color: inherit;
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
 }
 
-.markdown pre code::before{
+.prose :where(pre code):not(:where([class~="not-prose"] *))::before{
   content: none;
 }
 
-.markdown pre code::after{
+.prose :where(pre code):not(:where([class~="not-prose"] *))::after{
   content: none;
 }
 
-.markdown table{
+.prose :where(table):not(:where([class~="not-prose"] *)){
   width: 100%;
   table-layout: auto;
   text-align: left;
@@ -899,245 +767,270 @@ li[role="doc-endnote"]::marker{
   line-height: 1.7142857;
 }
 
-.markdown thead{
-  color: #111827;
-  font-weight: 600;
+.prose :where(thead):not(:where([class~="not-prose"] *)){
   border-bottom-width: 1px;
-  border-bottom-color: #d1d5db;
+  border-bottom-color: var(--tw-prose-th-borders);
 }
 
-.markdown thead th{
+.prose :where(thead th):not(:where([class~="not-prose"] *)){
+  color: var(--tw-prose-headings);
+  font-weight: 600;
   vertical-align: bottom;
   padding-right: 0.5714286em;
   padding-bottom: 0.5714286em;
   padding-left: 0.5714286em;
 }
 
-.markdown tbody tr{
+.prose :where(tbody tr):not(:where([class~="not-prose"] *)){
   border-bottom-width: 1px;
-  border-bottom-color: #e5e7eb;
+  border-bottom-color: var(--tw-prose-td-borders);
 }
 
-.markdown tbody tr:last-child{
+.prose :where(tbody tr:last-child):not(:where([class~="not-prose"] *)){
   border-bottom-width: 0;
 }
 
-.markdown tbody td{
-  vertical-align: top;
+.prose :where(tbody td):not(:where([class~="not-prose"] *)){
+  vertical-align: baseline;
   padding-top: 0.5714286em;
   padding-right: 0.5714286em;
   padding-bottom: 0.5714286em;
   padding-left: 0.5714286em;
 }
 
-.markdown{
+.prose{
+  --tw-prose-body: #374151;
+  --tw-prose-headings: #111827;
+  --tw-prose-lead: #4b5563;
+  --tw-prose-links: #111827;
+  --tw-prose-bold: #111827;
+  --tw-prose-counters: #6b7280;
+  --tw-prose-bullets: #d1d5db;
+  --tw-prose-hr: #e5e7eb;
+  --tw-prose-quotes: #111827;
+  --tw-prose-quote-borders: #e5e7eb;
+  --tw-prose-captions: #6b7280;
+  --tw-prose-code: #111827;
+  --tw-prose-pre-code: #e5e7eb;
+  --tw-prose-pre-bg: #1f2937;
+  --tw-prose-th-borders: #d1d5db;
+  --tw-prose-td-borders: #e5e7eb;
+  --tw-prose-invert-body: #d1d5db;
+  --tw-prose-invert-headings: #fff;
+  --tw-prose-invert-lead: #9ca3af;
+  --tw-prose-invert-links: #fff;
+  --tw-prose-invert-bold: #fff;
+  --tw-prose-invert-counters: #9ca3af;
+  --tw-prose-invert-bullets: #4b5563;
+  --tw-prose-invert-hr: #374151;
+  --tw-prose-invert-quotes: #f3f4f6;
+  --tw-prose-invert-quote-borders: #374151;
+  --tw-prose-invert-captions: #9ca3af;
+  --tw-prose-invert-code: #fff;
+  --tw-prose-invert-pre-code: #d1d5db;
+  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+  --tw-prose-invert-th-borders: #4b5563;
+  --tw-prose-invert-td-borders: #374151;
   font-size: 1rem;
   line-height: 1.75;
 }
 
-.markdown p{
+.prose :where(p):not(:where([class~="not-prose"] *)){
   margin-top: 1.25em;
   margin-bottom: 1.25em;
 }
 
-.markdown img{
+.prose :where(img):not(:where([class~="not-prose"] *)){
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
-.markdown video{
+.prose :where(video):not(:where([class~="not-prose"] *)){
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
-.markdown figure{
+.prose :where(figure):not(:where([class~="not-prose"] *)){
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
-.markdown figure > *{
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown h2 code{
+.prose :where(h2 code):not(:where([class~="not-prose"] *)){
   font-size: 0.875em;
 }
 
-.markdown h3 code{
+.prose :where(h3 code):not(:where([class~="not-prose"] *)){
   font-size: 0.9em;
 }
 
-.markdown ol{
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-}
-
-.markdown ul{
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-}
-
-.markdown li{
+.prose :where(li):not(:where([class~="not-prose"] *)){
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-.markdown > ul > li p{
+.prose :where(ol > li):not(:where([class~="not-prose"] *)){
+  padding-left: 0.375em;
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *)){
+  padding-left: 0.375em;
+}
+
+.prose > :where(ul > li p):not(:where([class~="not-prose"] *)){
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
 
-.markdown > ul > li > *:first-child{
+.prose > :where(ul > li > *:first-child):not(:where([class~="not-prose"] *)){
   margin-top: 1.25em;
 }
 
-.markdown > ul > li > *:last-child{
+.prose > :where(ul > li > *:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 1.25em;
 }
 
-.markdown > ol > li > *:first-child{
+.prose > :where(ol > li > *:first-child):not(:where([class~="not-prose"] *)){
   margin-top: 1.25em;
 }
 
-.markdown > ol > li > *:last-child{
+.prose > :where(ol > li > *:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 1.25em;
 }
 
-.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol{
+.prose :where(ul ul, ul ol, ol ul, ol ol):not(:where([class~="not-prose"] *)){
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
 
-.markdown hr + *{
+.prose :where(hr + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown h2 + *{
+.prose :where(h2 + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown h3 + *{
+.prose :where(h3 + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown h4 + *{
+.prose :where(h4 + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown thead th:first-child{
+.prose :where(thead th:first-child):not(:where([class~="not-prose"] *)){
   padding-left: 0;
 }
 
-.markdown thead th:last-child{
+.prose :where(thead th:last-child):not(:where([class~="not-prose"] *)){
   padding-right: 0;
 }
 
-.markdown tbody td:first-child{
+.prose :where(tbody td:first-child):not(:where([class~="not-prose"] *)){
   padding-left: 0;
 }
 
-.markdown tbody td:last-child{
+.prose :where(tbody td:last-child):not(:where([class~="not-prose"] *)){
   padding-right: 0;
 }
 
-.markdown > :first-child{
+.prose > :where(:first-child):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown > :last-child{
+.prose > :where(:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 0;
 }
 
-.markdown-sm{
+.prose-sm{
   font-size: 0.875rem;
   line-height: 1.7142857;
 }
 
-.markdown-sm p{
+.prose-sm :where(p):not(:where([class~="not-prose"] *)){
   margin-top: 1.1428571em;
   margin-bottom: 1.1428571em;
 }
 
-.markdown-sm [class~="lead"]{
+.prose-sm :where([class~="lead"]):not(:where([class~="not-prose"] *)){
   font-size: 1.2857143em;
   line-height: 1.5555556;
   margin-top: 0.8888889em;
   margin-bottom: 0.8888889em;
 }
 
-.markdown-sm blockquote{
+.prose-sm :where(blockquote):not(:where([class~="not-prose"] *)){
   margin-top: 1.3333333em;
   margin-bottom: 1.3333333em;
   padding-left: 1.1111111em;
 }
 
-.markdown-sm h1{
+.prose-sm :where(h1):not(:where([class~="not-prose"] *)){
   font-size: 2.1428571em;
   margin-top: 0;
   margin-bottom: 0.8em;
   line-height: 1.2;
 }
 
-.markdown-sm h2{
+.prose-sm :where(h2):not(:where([class~="not-prose"] *)){
   font-size: 1.4285714em;
   margin-top: 1.6em;
   margin-bottom: 0.8em;
   line-height: 1.4;
 }
 
-.markdown-sm h3{
+.prose-sm :where(h3):not(:where([class~="not-prose"] *)){
   font-size: 1.2857143em;
   margin-top: 1.5555556em;
   margin-bottom: 0.4444444em;
   line-height: 1.5555556;
 }
 
-.markdown-sm h4{
+.prose-sm :where(h4):not(:where([class~="not-prose"] *)){
   margin-top: 1.4285714em;
   margin-bottom: 0.5714286em;
   line-height: 1.4285714;
 }
 
-.markdown-sm img{
+.prose-sm :where(img):not(:where([class~="not-prose"] *)){
   margin-top: 1.7142857em;
   margin-bottom: 1.7142857em;
 }
 
-.markdown-sm video{
+.prose-sm :where(video):not(:where([class~="not-prose"] *)){
   margin-top: 1.7142857em;
   margin-bottom: 1.7142857em;
 }
 
-.markdown-sm figure{
+.prose-sm :where(figure):not(:where([class~="not-prose"] *)){
   margin-top: 1.7142857em;
   margin-bottom: 1.7142857em;
 }
 
-.markdown-sm figure > *{
+.prose-sm :where(figure > *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.markdown-sm figure figcaption{
+.prose-sm :where(figcaption):not(:where([class~="not-prose"] *)){
   font-size: 0.8571429em;
   line-height: 1.3333333;
   margin-top: 0.6666667em;
 }
 
-.markdown-sm code{
+.prose-sm :where(code):not(:where([class~="not-prose"] *)){
   font-size: 0.8571429em;
 }
 
-.markdown-sm h2 code{
+.prose-sm :where(h2 code):not(:where([class~="not-prose"] *)){
   font-size: 0.9em;
 }
 
-.markdown-sm h3 code{
+.prose-sm :where(h3 code):not(:where([class~="not-prose"] *)){
   font-size: 0.8888889em;
 }
 
-.markdown-sm pre{
+.prose-sm :where(pre):not(:where([class~="not-prose"] *)){
   font-size: 0.8571429em;
   line-height: 1.6666667;
   margin-top: 1.6666667em;
@@ -1149,219 +1042,211 @@ li[role="doc-endnote"]::marker{
   padding-left: 1em;
 }
 
-.markdown-sm ol{
-  margin-top: 1.1428571em;
-  margin-bottom: 1.1428571em;
+.prose-sm :where(ol):not(:where([class~="not-prose"] *)){
+  padding-left: 1.5714286em;
 }
 
-.markdown-sm ul{
-  margin-top: 1.1428571em;
-  margin-bottom: 1.1428571em;
+.prose-sm :where(ul):not(:where([class~="not-prose"] *)){
+  padding-left: 1.5714286em;
 }
 
-.markdown-sm li{
+.prose-sm :where(li):not(:where([class~="not-prose"] *)){
   margin-top: 0.2857143em;
   margin-bottom: 0.2857143em;
 }
 
-.markdown-sm ol > li{
-  padding-left: 1.5714286em;
-  position: relative;
+.prose-sm :where(ol > li):not(:where([class~="not-prose"] *)){
+  padding-left: 0.4285714em;
 }
 
-.markdown-sm ol > li::before{
-  left: 0;
-  content: counter(list-item, var(--list-counter-style, decimal)) ".";
-  position: absolute;
-  font-weight: 400;
-  color: #374151;
+.prose-sm :where(ul > li):not(:where([class~="not-prose"] *)){
+  padding-left: 0.4285714em;
 }
 
-.markdown-sm ul > li{
-  padding-left: 1.5714286em;
-  position: relative;
-}
-
-.markdown-sm ul > li::before{
-  height: 0.3571429em;
-  width: 0.3571429em;
-  top: calc(0.8571429em - 0.1785714em);
-  left: 0.2142857em;
-  content: "";
-  position: absolute;
-  background-color: #6b7280;
-  border-radius: 50%;
-}
-
-.markdown-sm > ul > li p{
+.prose-sm > :where(ul > li p):not(:where([class~="not-prose"] *)){
   margin-top: 0.5714286em;
   margin-bottom: 0.5714286em;
 }
 
-.markdown-sm > ul > li > *:first-child{
+.prose-sm > :where(ul > li > *:first-child):not(:where([class~="not-prose"] *)){
   margin-top: 1.1428571em;
 }
 
-.markdown-sm > ul > li > *:last-child{
+.prose-sm > :where(ul > li > *:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 1.1428571em;
 }
 
-.markdown-sm > ol > li > *:first-child{
+.prose-sm > :where(ol > li > *:first-child):not(:where([class~="not-prose"] *)){
   margin-top: 1.1428571em;
 }
 
-.markdown-sm > ol > li > *:last-child{
+.prose-sm > :where(ol > li > *:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 1.1428571em;
 }
 
-.markdown-sm ul ul, .markdown-sm ul ol, .markdown-sm ol ul, .markdown-sm ol ol{
+.prose-sm :where(ul ul, ul ol, ol ul, ol ol):not(:where([class~="not-prose"] *)){
   margin-top: 0.5714286em;
   margin-bottom: 0.5714286em;
 }
 
-.markdown-sm hr{
+.prose-sm :where(hr):not(:where([class~="not-prose"] *)){
   margin-top: 2.8571429em;
   margin-bottom: 2.8571429em;
 }
 
-.markdown-sm hr + *{
+.prose-sm :where(hr + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown-sm h2 + *{
+.prose-sm :where(h2 + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown-sm h3 + *{
+.prose-sm :where(h3 + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown-sm h4 + *{
+.prose-sm :where(h4 + *):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown-sm table{
+.prose-sm :where(table):not(:where([class~="not-prose"] *)){
   font-size: 0.8571429em;
   line-height: 1.5;
 }
 
-.markdown-sm thead th{
+.prose-sm :where(thead th):not(:where([class~="not-prose"] *)){
   padding-right: 1em;
   padding-bottom: 0.6666667em;
   padding-left: 1em;
 }
 
-.markdown-sm thead th:first-child{
+.prose-sm :where(thead th:first-child):not(:where([class~="not-prose"] *)){
   padding-left: 0;
 }
 
-.markdown-sm thead th:last-child{
+.prose-sm :where(thead th:last-child):not(:where([class~="not-prose"] *)){
   padding-right: 0;
 }
 
-.markdown-sm tbody td{
+.prose-sm :where(tbody td):not(:where([class~="not-prose"] *)){
   padding-top: 0.6666667em;
   padding-right: 1em;
   padding-bottom: 0.6666667em;
   padding-left: 1em;
 }
 
-.markdown-sm tbody td:first-child{
+.prose-sm :where(tbody td:first-child):not(:where([class~="not-prose"] *)){
   padding-left: 0;
 }
 
-.markdown-sm tbody td:last-child{
+.prose-sm :where(tbody td:last-child):not(:where([class~="not-prose"] *)){
   padding-right: 0;
 }
 
-.markdown-sm > :first-child{
+.prose-sm > :where(:first-child):not(:where([class~="not-prose"] *)){
   margin-top: 0;
 }
 
-.markdown-sm > :last-child{
+.prose-sm > :where(:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 0;
 }
 
-.markdown-royal a{
-  color: #246D97;
-}
-
-.markdown-royal a code{
-  color: #246D97;
-}
-
-.sidebar-overlay{
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  z-index: 10;
-  display: flex;
-  width: 18rem;
-  transform: var(--tw-transform);
-  flex-direction: column;
-  align-items: center;
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  transition-duration: 150ms;
-}
-
-@media (min-width: 1024px){
-  .sidebar-overlay{
-    visibility: hidden;
-  }
+.prose-slate{
+  --tw-prose-body: #334155;
+  --tw-prose-headings: #0f172a;
+  --tw-prose-lead: #475569;
+  --tw-prose-links: #0f172a;
+  --tw-prose-bold: #0f172a;
+  --tw-prose-counters: #64748b;
+  --tw-prose-bullets: #cbd5e1;
+  --tw-prose-hr: #e2e8f0;
+  --tw-prose-quotes: #0f172a;
+  --tw-prose-quote-borders: #e2e8f0;
+  --tw-prose-captions: #64748b;
+  --tw-prose-code: #0f172a;
+  --tw-prose-pre-code: #e2e8f0;
+  --tw-prose-pre-bg: #1e293b;
+  --tw-prose-th-borders: #cbd5e1;
+  --tw-prose-td-borders: #e2e8f0;
+  --tw-prose-invert-body: #cbd5e1;
+  --tw-prose-invert-headings: #fff;
+  --tw-prose-invert-lead: #94a3b8;
+  --tw-prose-invert-links: #fff;
+  --tw-prose-invert-bold: #fff;
+  --tw-prose-invert-counters: #94a3b8;
+  --tw-prose-invert-bullets: #475569;
+  --tw-prose-invert-hr: #334155;
+  --tw-prose-invert-quotes: #f1f5f9;
+  --tw-prose-invert-quote-borders: #334155;
+  --tw-prose-invert-captions: #94a3b8;
+  --tw-prose-invert-code: #fff;
+  --tw-prose-invert-pre-code: #cbd5e1;
+  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+  --tw-prose-invert-th-borders: #475569;
+  --tw-prose-invert-td-borders: #334155;
 }
 
 .cvwrapper{
   border-left-width: 2px;
   --tw-border-opacity: 1;
-  border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
   padding-left: 1.25rem;
 }
 
 .btn-primary{
   transform: var(--tw-transform);
   --tw-bg-opacity: 1;
-  background-color: rgba(36, 109, 151, var(--tw-bg-opacity));
+  background-color: rgb(36 109 151 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-  transition-property: background-color, border-color, color, fill, stroke;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
   transition-duration: 150ms;
 }
 
 .btn-primary:hover{
   --tw-bg-opacity: 1;
-  background-color: rgba(26, 79, 110, var(--tw-bg-opacity));
+  background-color: rgb(26 79 110 / var(--tw-bg-opacity));
 }
 
 .dark .btn-primary:hover{
   --tw-bg-opacity: 1;
-  background-color: rgba(77, 163, 212, var(--tw-bg-opacity));
+  background-color: rgb(77 163 212 / var(--tw-bg-opacity));
 }
 
 .btn-secondary{
   transform: var(--tw-transform);
   --tw-bg-opacity: 1;
-  background-color: rgba(130, 97, 56, var(--tw-bg-opacity));
+  background-color: rgb(130 97 56 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-  transition-property: background-color, border-color, color, fill, stroke;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
   transition-duration: 150ms;
 }
 
 .btn-secondary:hover{
   --tw-bg-opacity: 1;
-  background-color: rgba(95, 71, 40, var(--tw-bg-opacity));
+  background-color: rgb(95 71 40 / var(--tw-bg-opacity));
 }
 
 .dark .btn-secondary:hover{
   --tw-bg-opacity: 1;
-  background-color: rgba(188, 149, 100, var(--tw-bg-opacity));
+  background-color: rgb(188 149 100 / var(--tw-bg-opacity));
+}
+
+#top{
+  position: absolute;
+  top: 0px;
+}
+
+.visible{
+  visibility: visible;
 }
 
 .static{
@@ -1376,8 +1261,9 @@ li[role="doc-endnote"]::marker{
   position: relative;
 }
 
-.bottom-0{
-  bottom: 0px;
+.sticky{
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .left-5{
@@ -1400,16 +1286,17 @@ li[role="doc-endnote"]::marker{
   clear: both;
 }
 
-.\!m-0{
-  margin: 0px !important;
+.m-auto{
+  margin: auto;
 }
 
 .m-0{
   margin: 0px;
 }
 
-.m-auto{
-  margin: auto;
+.\!my-0{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .my-auto{
@@ -1437,9 +1324,8 @@ li[role="doc-endnote"]::marker{
   margin-bottom: 1.25rem;
 }
 
-.\!my-0{
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
+.mt-\[10\%\]{
+  margin-top: 10%;
 }
 
 .\!mb-1{
@@ -1452,6 +1338,14 @@ li[role="doc-endnote"]::marker{
 
 .mr-3{
   margin-right: 0.75rem;
+}
+
+.mb-1\.5{
+  margin-bottom: 0.375rem;
+}
+
+.mb-1{
+  margin-bottom: 0.25rem;
 }
 
 .ml-5{
@@ -1510,18 +1404,6 @@ li[role="doc-endnote"]::marker{
   margin-right: 0px;
 }
 
-.mb-4{
-  margin-bottom: 1rem;
-}
-
-.mb-1{
-  margin-bottom: 0.25rem;
-}
-
-.mt-\[10\%\]{
-  margin-top: 10%;
-}
-
 .block{
   display: block;
 }
@@ -1530,12 +1412,12 @@ li[role="doc-endnote"]::marker{
   display: inline-block;
 }
 
-.flex{
-  display: flex;
+.inline{
+  display: inline;
 }
 
-.table{
-  display: table;
+.flex{
+  display: flex;
 }
 
 .grid{
@@ -1570,12 +1452,16 @@ li[role="doc-endnote"]::marker{
   height: 11rem;
 }
 
-.h-48{
-  height: 12rem;
-}
-
 .min-h-full{
   min-height: 100%;
+}
+
+.min-h-screen{
+  min-height: 100vh;
+}
+
+.w-full{
+  width: 100%;
 }
 
 .w-5{
@@ -1586,32 +1472,12 @@ li[role="doc-endnote"]::marker{
   width: 9rem;
 }
 
-.w-full{
-  width: 100%;
-}
-
 .w-44{
   width: 11rem;
 }
 
 .w-\[90\%\]{
   width: 90%;
-}
-
-.w-48{
-  width: 12rem;
-}
-
-.w-3\/4{
-  width: 75%;
-}
-
-.min-w-full{
-  min-width: 100%;
-}
-
-.max-w-sm{
-  max-width: 24rem;
 }
 
 .\!max-w-none{
@@ -1633,11 +1499,6 @@ li[role="doc-endnote"]::marker{
   transform: var(--tw-transform);
 }
 
-.-translate-x-full{
-  --tw-translate-x: -100%;
-  transform: var(--tw-transform);
-}
-
 .rotate-180{
   --tw-rotate: 180deg;
   transform: var(--tw-transform);
@@ -1645,6 +1506,10 @@ li[role="doc-endnote"]::marker{
 
 .transform{
   transform: var(--tw-transform);
+}
+
+.snap-proximity{
+  --tw-scroll-snap-strictness: proximity;
 }
 
 .\!list-none{
@@ -1655,12 +1520,12 @@ li[role="doc-endnote"]::marker{
   list-style-type: none;
 }
 
-.grid-cols-layout{
-  grid-template-columns: 0.7fr 2.3fr 1fr;
-}
-
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-layout{
+  grid-template-columns: 0.7fr 2.3fr 1fr;
 }
 
 .grid-cols-3{
@@ -1673,10 +1538,6 @@ li[role="doc-endnote"]::marker{
 
 .grid-rows-layout{
   grid-template-rows: 0.2fr 2.6fr 0.2fr;
-}
-
-.flex-row{
-  flex-direction: row;
 }
 
 .flex-col{
@@ -1699,12 +1560,12 @@ li[role="doc-endnote"]::marker{
   justify-content: space-between;
 }
 
-.gap-4{
-  gap: 1rem;
-}
-
 .gap-2{
   gap: 0.5rem;
+}
+
+.gap-4{
+  gap: 1rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -1739,7 +1600,11 @@ li[role="doc-endnote"]::marker{
 
 .divide-gray-400 > :not([hidden]) ~ :not([hidden]){
   --tw-divide-opacity: 1;
-  border-color: rgba(156, 163, 175, var(--tw-divide-opacity));
+  border-color: rgb(156 163 175 / var(--tw-divide-opacity));
+}
+
+.overflow-auto{
+  overflow: auto;
 }
 
 .overflow-hidden{
@@ -1748,6 +1613,15 @@ li[role="doc-endnote"]::marker{
 
 .overflow-y-scroll{
   overflow-y: scroll;
+}
+
+.overscroll-auto{
+  -ms-scroll-chaining: chained;
+      overscroll-behavior: auto;
+}
+
+.scroll-smooth{
+  scroll-behavior: smooth;
 }
 
 .truncate{
@@ -1768,10 +1642,6 @@ li[role="doc-endnote"]::marker{
   border-radius: 9999px;
 }
 
-.border-2{
-  border-width: 2px;
-}
-
 .border-\[1px\]{
   border-width: 1px;
 }
@@ -1784,64 +1654,54 @@ li[role="doc-endnote"]::marker{
   border-bottom-width: 2px;
 }
 
-.border-green-800{
-  --tw-border-opacity: 1;
-  border-color: rgba(6, 95, 70, var(--tw-border-opacity));
-}
-
 .border-gray-400{
   --tw-border-opacity: 1;
-  border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
 .border-royal-600{
   --tw-border-opacity: 1;
-  border-color: rgba(36, 109, 151, var(--tw-border-opacity));
+  border-color: rgb(36 109 151 / var(--tw-border-opacity));
 }
 
 .border-brown-600{
   --tw-border-opacity: 1;
-  border-color: rgba(130, 97, 56, var(--tw-border-opacity));
+  border-color: rgb(130 97 56 / var(--tw-border-opacity));
 }
 
 .border-gray-300{
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-}
-
-.bg-blue-500{
-  --tw-bg-opacity: 1;
-  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
-}
-
-.bg-gray-200{
-  --tw-bg-opacity: 1;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
-}
-
-.bg-royal-600{
-  --tw-bg-opacity: 1;
-  background-color: rgba(36, 109, 151, var(--tw-bg-opacity));
-}
-
-.bg-brown-600{
-  --tw-bg-opacity: 1;
-  background-color: rgba(130, 97, 56, var(--tw-bg-opacity));
-}
-
-.bg-blueGray-300{
-  --tw-bg-opacity: 1;
-  background-color: rgba(203, 213, 225, var(--tw-bg-opacity));
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
 .bg-white{
   --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-royal{
   --tw-bg-opacity: 1;
-  background-color: rgba(46, 139, 192, var(--tw-bg-opacity));
+  background-color: rgb(46 139 192 / var(--tw-bg-opacity));
+}
+
+.bg-gray-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.bg-royal-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(36 109 151 / var(--tw-bg-opacity));
+}
+
+.bg-brown-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(130 97 56 / var(--tw-bg-opacity));
+}
+
+.bg-slate-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -1854,12 +1714,8 @@ li[role="doc-endnote"]::marker{
      object-position: left-5%;
 }
 
-.\!p-0{
-  padding: 0px !important;
-}
-
-.p-0{
-  padding: 0px;
+.p-6{
+  padding: 1.5rem;
 }
 
 .p-3{
@@ -1884,10 +1740,6 @@ li[role="doc-endnote"]::marker{
 
 .p-2{
   padding: 0.5rem;
-}
-
-.p-6{
-  padding: 1.5rem;
 }
 
 .px-3{
@@ -1920,16 +1772,16 @@ li[role="doc-endnote"]::marker{
   padding-bottom: 0.625rem;
 }
 
+.\!pt-3{
+  padding-top: 0.75rem !important;
+}
+
 .pt-3{
   padding-top: 0.75rem;
 }
 
 .\!pb-0{
   padding-bottom: 0px !important;
-}
-
-.\!pt-3{
-  padding-top: 0.75rem !important;
 }
 
 .text-center{
@@ -1947,6 +1799,11 @@ li[role="doc-endnote"]::marker{
 .text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .\!text-2xl{
@@ -1968,22 +1825,17 @@ li[role="doc-endnote"]::marker{
   line-height: 2rem;
 }
 
-.text-xs{
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
-.\!font-normal{
-  font-weight: 400 !important;
-}
-
 .font-bold{
   font-weight: 700;
+}
+
+.\!font-normal{
+  font-weight: 400 !important;
 }
 
 .font-semibold{
@@ -2002,52 +1854,44 @@ li[role="doc-endnote"]::marker{
   letter-spacing: 1px;
 }
 
-.text-gray-100{
-  --tw-text-opacity: 1;
-  color: rgba(243, 244, 246, var(--tw-text-opacity));
-}
-
 .\!text-white{
   --tw-text-opacity: 1 !important;
-  color: rgba(255, 255, 255, var(--tw-text-opacity)) !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
 }
 
 .\!text-gray-900{
   --tw-text-opacity: 1 !important;
-  color: rgba(17, 24, 39, var(--tw-text-opacity)) !important;
+  color: rgb(17 24 39 / var(--tw-text-opacity)) !important;
 }
 
 .text-gray-800{
   --tw-text-opacity: 1;
-  color: rgba(31, 41, 55, var(--tw-text-opacity));
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .text-white{
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-gray-600{
   --tw-text-opacity: 1;
-  color: rgba(75, 85, 99, var(--tw-text-opacity));
-}
-
-.text-gray-700{
-  --tw-text-opacity: 1;
-  color: rgba(55, 65, 81, var(--tw-text-opacity));
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .text-gray-900{
   --tw-text-opacity: 1;
-  color: rgba(17, 24, 39, var(--tw-text-opacity));
+  color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
 .underline{
-  text-decoration: underline;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .\!no-underline{
-  text-decoration: none !important;
+  -webkit-text-decoration-line: none !important;
+          text-decoration-line: none !important;
 }
 
 .opacity-0{
@@ -2059,7 +1903,8 @@ li[role="doc-endnote"]::marker{
 }
 
 .shadow-xl{
-  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -2070,6 +1915,22 @@ li[role="doc-endnote"]::marker{
 
 .filter{
   filter: var(--tw-filter);
+}
+
+.transition-colors{
+  transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition{
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .transition-transform{
@@ -2084,18 +1945,8 @@ li[role="doc-endnote"]::marker{
   transition-duration: 150ms;
 }
 
-.transition{
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-colors{
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+.duration-75{
+  transition-duration: 75ms;
 }
 
 .duration-200{
@@ -2104,10 +1955,6 @@ li[role="doc-endnote"]::marker{
 
 .duration-100{
   transition-duration: 100ms;
-}
-
-.duration-75{
-  transition-duration: 75ms;
 }
 
 .ease-out{
@@ -2172,10 +2019,6 @@ li[role="doc-endnote"]::marker{
   height: 8px;
 }
 
-.scroll-smooth{
-  scroll-behavior: smooth;
-}
-
 .last\:border-0:last-child{
   border-width: 0px;
 }
@@ -2185,29 +2028,29 @@ li[role="doc-endnote"]::marker{
   transform: var(--tw-transform);
 }
 
-.hover\:bg-gray-400:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
-}
-
 .hover\:bg-royal-600:hover{
   --tw-bg-opacity: 1;
-  background-color: rgba(36, 109, 151, var(--tw-bg-opacity));
+  background-color: rgb(36 109 151 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-400:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .hover\:\!text-royal-600:hover{
   --tw-text-opacity: 1 !important;
-  color: rgba(36, 109, 151, var(--tw-text-opacity)) !important;
+  color: rgb(36 109 151 / var(--tw-text-opacity)) !important;
 }
 
 .hover\:text-royal-600:hover{
   --tw-text-opacity: 1;
-  color: rgba(36, 109, 151, var(--tw-text-opacity));
+  color: rgb(36 109 151 / var(--tw-text-opacity));
 }
 
 .hover\:text-blue-400:hover{
   --tw-text-opacity: 1;
-  color: rgba(96, 165, 250, var(--tw-text-opacity));
+  color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
 .hover\:grayscale-0:hover{
@@ -2216,174 +2059,107 @@ li[role="doc-endnote"]::marker{
 }
 
 @media (prefers-reduced-motion: reduce){
-  .motion-reduce\:duration-\[0ms\]{
-    transition-duration: 0ms;
-  }
-
   .motion-reduce\:scroll-auto{
     scroll-behavior: auto;
   }
+
+  .motion-reduce\:duration-\[0ms\]{
+    transition-duration: 0ms;
+  }
 }
 
-.dark .dark\:markdown-dark{
-  color: #d1d5db;
-}
-
-.dark .dark\:markdown-dark [class~="lead"]{
-  color: #d1d5db;
-}
-
-.dark .dark\:markdown-dark a{
-  color: #4DA3D4;
-}
-
-.dark .dark\:markdown-dark a:hover{
-  color: #76B8DE;
-}
-
-.dark .dark\:markdown-dark strong{
-  color: #f3f4f6;
-}
-
-.dark .dark\:markdown-dark ol > li::before{
-  color: #9ca3af;
-}
-
-.dark .dark\:markdown-dark ul > li::before{
-  background-color: #4b5563;
-}
-
-.dark .dark\:markdown-dark hr{
-  border-color: #374151;
-}
-
-.dark .dark\:markdown-dark blockquote{
-  color: #f3f4f6;
-  border-left-color: #374151;
-}
-
-.dark .dark\:markdown-dark h1{
-  color: #f3f4f6;
-}
-
-.dark .dark\:markdown-dark h2{
-  color: #f3f4f6;
-  border-bottom-color: #1f2937;
-}
-
-.dark .dark\:markdown-dark h3{
-  color: #f3f4f6;
-  border-bottom-color: #1f2937;
-}
-
-.dark .dark\:markdown-dark h4{
-  color: #f3f4f6;
-}
-
-.dark .dark\:markdown-dark figure figcaption{
-  color: #9ca3af;
-}
-
-.dark .dark\:markdown-dark code{
-  color: #f3f4f6;
-}
-
-.dark .dark\:markdown-dark pre{
-  color: #374151;
-}
-
-.dark .dark\:markdown-dark thead{
-  color: #f3f4f6;
-  border-bottom-color: #4b5563;
-}
-
-.dark .dark\:markdown-dark tbody tr{
-  border-bottom-color: #374151;
+.dark .dark\:prose-invert{
+  --tw-prose-body: var(--tw-prose-invert-body);
+  --tw-prose-headings: var(--tw-prose-invert-headings);
+  --tw-prose-lead: var(--tw-prose-invert-lead);
+  --tw-prose-links: var(--tw-prose-invert-links);
+  --tw-prose-bold: var(--tw-prose-invert-bold);
+  --tw-prose-counters: var(--tw-prose-invert-counters);
+  --tw-prose-bullets: var(--tw-prose-invert-bullets);
+  --tw-prose-hr: var(--tw-prose-invert-hr);
+  --tw-prose-quotes: var(--tw-prose-invert-quotes);
+  --tw-prose-quote-borders: var(--tw-prose-invert-quote-borders);
+  --tw-prose-captions: var(--tw-prose-invert-captions);
+  --tw-prose-code: var(--tw-prose-invert-code);
+  --tw-prose-pre-code: var(--tw-prose-invert-pre-code);
+  --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
+  --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
+  --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
 }
 
 .dark .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]){
   --tw-divide-opacity: 1;
-  border-color: rgba(55, 65, 81, var(--tw-divide-opacity));
+  border-color: rgb(55 65 81 / var(--tw-divide-opacity));
 }
 
 .dark .dark\:border-gray-700{
   --tw-border-opacity: 1;
-  border-color: rgba(55, 65, 81, var(--tw-border-opacity));
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
 
 .dark .dark\:border-royal-400{
   --tw-border-opacity: 1;
-  border-color: rgba(77, 163, 212, var(--tw-border-opacity));
-}
-
-.dark .dark\:bg-navy-700{
-  --tw-bg-opacity: 1;
-  background-color: rgba(41, 51, 61, var(--tw-bg-opacity));
+  border-color: rgb(77 163 212 / var(--tw-border-opacity));
 }
 
 .dark .dark\:bg-gray-800{
   --tw-bg-opacity: 1;
-  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
-.dark .dark\:bg-blueGray-700{
+.dark .dark\:bg-navy-700{
   --tw-bg-opacity: 1;
-  background-color: rgba(51, 65, 85, var(--tw-bg-opacity));
+  background-color: rgb(41 51 61 / var(--tw-bg-opacity));
 }
 
-.dark .dark\:bg-navy-600{
+.dark .dark\:bg-slate-700{
   --tw-bg-opacity: 1;
-  background-color: rgba(49, 62, 73, var(--tw-bg-opacity));
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:\!text-gray-100{
   --tw-text-opacity: 1 !important;
-  color: rgba(243, 244, 246, var(--tw-text-opacity)) !important;
+  color: rgb(243 244 246 / var(--tw-text-opacity)) !important;
 }
 
 .dark .dark\:text-gray-200{
   --tw-text-opacity: 1;
-  color: rgba(229, 231, 235, var(--tw-text-opacity));
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .dark .dark\:text-gray-100{
   --tw-text-opacity: 1;
-  color: rgba(243, 244, 246, var(--tw-text-opacity));
+  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
 .dark .dark\:text-gray-400{
   --tw-text-opacity: 1;
-  color: rgba(156, 163, 175, var(--tw-text-opacity));
-}
-
-.dark .dark\:hover\:bg-gray-700:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
-}
-
-.dark .dark\:hover\:bg-navy-600:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgba(49, 62, 73, var(--tw-bg-opacity));
-}
-
-.dark .dark\:hover\:bg-blueGray-600:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgba(71, 85, 105, var(--tw-bg-opacity));
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 .dark .dark\:hover\:bg-royal-400:hover{
   --tw-bg-opacity: 1;
-  background-color: rgba(77, 163, 212, var(--tw-bg-opacity));
+  background-color: rgb(77 163 212 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:hover\:bg-navy-600:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 62 73 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:hover\:bg-gray-700:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:hover\:\!text-royal-400:hover{
   --tw-text-opacity: 1 !important;
-  color: rgba(77, 163, 212, var(--tw-text-opacity)) !important;
+  color: rgb(77 163 212 / var(--tw-text-opacity)) !important;
 }
 
 .dark .dark\:hover\:text-royal-400:hover{
   --tw-text-opacity: 1;
-  color: rgba(77, 163, 212, var(--tw-text-opacity));
+  color: rgb(77 163 212 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px){
@@ -2393,10 +2169,6 @@ li[role="doc-endnote"]::marker{
 }
 
 @media (min-width: 768px){
-  .md\:float-right{
-    float: right;
-  }
-
   .md\:w-\[30\%\]{
     width: 30%;
   }
@@ -2416,12 +2188,12 @@ li[role="doc-endnote"]::marker{
 
   .md\:text-gray-700{
     --tw-text-opacity: 1;
-    color: rgba(55, 65, 81, var(--tw-text-opacity));
+    color: rgb(55 65 81 / var(--tw-text-opacity));
   }
 
   .dark .md\:dark\:\!text-gray-300{
     --tw-text-opacity: 1 !important;
-    color: rgba(209, 213, 219, var(--tw-text-opacity)) !important;
+    color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
   }
 }
 
@@ -2430,20 +2202,12 @@ li[role="doc-endnote"]::marker{
     float: right;
   }
 
-  .lg\:mt-5{
-    margin-top: 1.25rem;
-  }
-
   .lg\:flex{
     display: flex;
   }
 
   .lg\:hidden{
     display: none;
-  }
-
-  .lg\:h-13{
-    height: 52px;
   }
 
   .lg\:grid-cols-\[2\.35fr\2c 0\.65fr\]{
@@ -2466,248 +2230,6 @@ li[role="doc-endnote"]::marker{
 }
 
 @media (min-width: 1536px){
-  .\32xl\:markdown-lg{
-    font-size: 1.125rem;
-    line-height: 1.7777778;
-  }
-
-  .\32xl\:markdown-lg p{
-    margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
-  }
-
-  .\32xl\:markdown-lg [class~="lead"]{
-    font-size: 1.2222222em;
-    line-height: 1.4545455;
-    margin-top: 1.0909091em;
-    margin-bottom: 1.0909091em;
-  }
-
-  .\32xl\:markdown-lg blockquote{
-    margin-top: 1.6666667em;
-    margin-bottom: 1.6666667em;
-    padding-left: 1em;
-  }
-
-  .\32xl\:markdown-lg h1{
-    font-size: 2.6666667em;
-    margin-top: 0;
-    margin-bottom: 0.8333333em;
-    line-height: 1;
-  }
-
-  .\32xl\:markdown-lg h2{
-    font-size: 1.6666667em;
-    margin-top: 1.8666667em;
-    margin-bottom: 1.0666667em;
-    line-height: 1.3333333;
-  }
-
-  .\32xl\:markdown-lg h3{
-    font-size: 1.3333333em;
-    margin-top: 1.6666667em;
-    margin-bottom: 0.6666667em;
-    line-height: 1.5;
-  }
-
-  .\32xl\:markdown-lg h4{
-    margin-top: 1.7777778em;
-    margin-bottom: 0.4444444em;
-    line-height: 1.5555556;
-  }
-
-  .\32xl\:markdown-lg img{
-    margin-top: 1.7777778em;
-    margin-bottom: 1.7777778em;
-  }
-
-  .\32xl\:markdown-lg video{
-    margin-top: 1.7777778em;
-    margin-bottom: 1.7777778em;
-  }
-
-  .\32xl\:markdown-lg figure{
-    margin-top: 1.7777778em;
-    margin-bottom: 1.7777778em;
-  }
-
-  .\32xl\:markdown-lg figure > *{
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .\32xl\:markdown-lg figure figcaption{
-    font-size: 0.8888889em;
-    line-height: 1.5;
-    margin-top: 1em;
-  }
-
-  .\32xl\:markdown-lg code{
-    font-size: 0.8888889em;
-  }
-
-  .\32xl\:markdown-lg h2 code{
-    font-size: 0.8666667em;
-  }
-
-  .\32xl\:markdown-lg h3 code{
-    font-size: 0.875em;
-  }
-
-  .\32xl\:markdown-lg pre{
-    font-size: 0.8888889em;
-    line-height: 1.75;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    border-radius: 0.375rem;
-    padding-top: 1em;
-    padding-right: 1.5em;
-    padding-bottom: 1em;
-    padding-left: 1.5em;
-  }
-
-  .\32xl\:markdown-lg ol{
-    margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
-  }
-
-  .\32xl\:markdown-lg ul{
-    margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
-  }
-
-  .\32xl\:markdown-lg li{
-    margin-top: 0.6666667em;
-    margin-bottom: 0.6666667em;
-  }
-
-  .\32xl\:markdown-lg ol > li{
-    padding-left: 1.6666667em;
-  }
-
-  .\32xl\:markdown-lg ol > li::before{
-    left: 0;
-  }
-
-  .\32xl\:markdown-lg ul > li{
-    padding-left: 1.6666667em;
-  }
-
-  .\32xl\:markdown-lg ul > li::before{
-    width: 0.3333333em;
-    height: 0.3333333em;
-    top: calc(0.8888889em - 0.1666667em);
-    left: 0.2222222em;
-  }
-
-  .\32xl\:markdown-lg > ul > li p{
-    margin-top: 0.8888889em;
-    margin-bottom: 0.8888889em;
-  }
-
-  .\32xl\:markdown-lg > ul > li > *:first-child{
-    margin-top: 1.3333333em;
-  }
-
-  .\32xl\:markdown-lg > ul > li > *:last-child{
-    margin-bottom: 1.3333333em;
-  }
-
-  .\32xl\:markdown-lg > ol > li > *:first-child{
-    margin-top: 1.3333333em;
-  }
-
-  .\32xl\:markdown-lg > ol > li > *:last-child{
-    margin-bottom: 1.3333333em;
-  }
-
-  .\32xl\:markdown-lg ul ul, .\32xl\:markdown-lg ul ol, .\32xl\:markdown-lg ol ul, .\32xl\:markdown-lg ol ol{
-    margin-top: 0.8888889em;
-    margin-bottom: 0.8888889em;
-  }
-
-  .\32xl\:markdown-lg ul ul, .\32xl\:markdown-lg ul ol, .\32xl\:markdown-lg ol ul, .\32xl\:markdown-lg ol ol{
-    margin-top: 0.8888889em;
-    margin-bottom: 0.8888889em;
-  }
-
-  .\32xl\:markdown-lg ul ul, .\32xl\:markdown-lg ul ol, .\32xl\:markdown-lg ol ul, .\32xl\:markdown-lg ol ol{
-    margin-top: 0.8888889em;
-    margin-bottom: 0.8888889em;
-  }
-
-  .\32xl\:markdown-lg ul ul, .\32xl\:markdown-lg ul ol, .\32xl\:markdown-lg ol ul, .\32xl\:markdown-lg ol ol{
-    margin-top: 0.8888889em;
-    margin-bottom: 0.8888889em;
-  }
-
-  .\32xl\:markdown-lg hr{
-    margin-top: 3.1111111em;
-    margin-bottom: 3.1111111em;
-  }
-
-  .\32xl\:markdown-lg hr + *{
-    margin-top: 0;
-  }
-
-  .\32xl\:markdown-lg h2 + *{
-    margin-top: 0;
-  }
-
-  .\32xl\:markdown-lg h3 + *{
-    margin-top: 0;
-  }
-
-  .\32xl\:markdown-lg h4 + *{
-    margin-top: 0;
-  }
-
-  .\32xl\:markdown-lg table{
-    font-size: 0.8888889em;
-    line-height: 1.5;
-  }
-
-  .\32xl\:markdown-lg thead th{
-    padding-right: 0.75em;
-    padding-bottom: 0.75em;
-    padding-left: 0.75em;
-  }
-
-  .\32xl\:markdown-lg thead th:first-child{
-    padding-left: 0;
-  }
-
-  .\32xl\:markdown-lg thead th:last-child{
-    padding-right: 0;
-  }
-
-  .\32xl\:markdown-lg tbody td{
-    padding-top: 0.75em;
-    padding-right: 0.75em;
-    padding-bottom: 0.75em;
-    padding-left: 0.75em;
-  }
-
-  .\32xl\:markdown-lg tbody td:first-child{
-    padding-left: 0;
-  }
-
-  .\32xl\:markdown-lg tbody td:last-child{
-    padding-right: 0;
-  }
-
-  .\32xl\:markdown-lg > :first-child{
-    margin-top: 0;
-  }
-
-  .\32xl\:markdown-lg > :last-child{
-    margin-bottom: 0;
-  }
-
-  .\32xl\:mt-5{
-    margin-top: 1.25rem;
-  }
-
   .\32xl\:h-\[62px\]{
     height: 62px;
   }
@@ -2719,11 +2241,5 @@ li[role="doc-endnote"]::marker{
   .\32xl\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-}
-
-@media (max-width: 1023px){
-  .mobile\:hidden{
-    display: none;
   }
 }

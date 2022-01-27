@@ -37,6 +37,7 @@
     #TableOfContents > ul > li {
         @apply !list-none;
     }
+
 }
 
 @layer components {
@@ -61,4 +62,6 @@
    #top {
        @apply absolute top-0;
    }
+
+   
 }

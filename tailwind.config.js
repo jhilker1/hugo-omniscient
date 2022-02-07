@@ -56,12 +56,7 @@ module.exports = {
           'navy': {  DEFAULT: '#394855',  '50': '#758DA3',  '100': '#6C869C',  '200': '#5E778C',  '300': '#52677A',  '400': '#455867',  '500': '#394855',  '600': '#313E49',  '700': '#29333D',  '800': '#202930',  '900': '#181F24'},
           'bismark': {  DEFAULT: '#3D627D',  '50': '#A1BDD1',  '100': '#93B3CA',  '200': '#78A0BD',  '300': '#5C8CB0',  '400': '#4A7798',  '500': '#3D627D',  '600': '#304D62',  '700': '#223746',  '800': '#15222B',  '900': '#070C0F'},
       },
-
-        'syntax': {
-            'bg': '#2e3440',
-        }
-
-        fontFamily: {
+      fontFamily: {
         mono: ['Iosevka Mono Web', defaultTheme.fontFamily.mono],
         serif: ['"Iosevka Slab Web"', defaultTheme.fontFamily.serif],
         sans: ['"Iosevka Sans Web"', defaultTheme.fontFamily.sans]

@@ -2327,6 +2327,10 @@ li[role="doc-endnote"]::marker{
     border-top-left-radius: 0.125rem;
   }
 
+  .lg\:p-4{
+    padding: 1rem;
+  }
+
   .lg\:grid-areas-desktop{
     grid-template-areas: "sidebar header header"
 "sidebar main main"

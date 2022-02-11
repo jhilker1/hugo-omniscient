@@ -1,0 +1,13 @@
+{{ $count := .Get "count"}}
+
+    {{range  first $count (where (where .Site.RegularPages "Type" "post") ".Params.featured" "==" true) }}
+    <li class="!list-none clear-both">
+      <a href="{{.RelPermalink}}">
+        {{.Title}}
+      </a>
+      <span class="float-right mr-5">
+        {{.Date.Format "02 Jan."}}
+      </span>
+    </li>
+
+    {{ end }}

@@ -10,9 +10,6 @@
 
 @layer base {
     
-    html {
-        @apply scroll-smooth motion-reduce:scroll-auto;
-    }
 
     body {
         @apply min-h-screen antialiased bg-slate-100 dark:bg-slate-900 scrollbar-thin;

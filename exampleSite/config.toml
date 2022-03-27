@@ -27,6 +27,31 @@ themesDir="../../"
     weight = 20
 
 
+[[params.socials]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/"
+
+[[params.socials]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://linkedin.com/"
+
+[[params.socials]]
+icon = "fab fa-dev"
+title = "Dev.to"
+url = "https://dev.to/"
+
+[[params.socials]]
+icon = "fab fa-codepen"
+title = "CodePen"
+url = "https://codepen.io/"
+
+
+[[params.socials]]
+icon = "fas fa-envelope"
+title = "Home"
+url = "#"
 
 [taxonomies]
 category = "categories"

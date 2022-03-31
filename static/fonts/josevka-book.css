@@ -1,0 +1,209 @@
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('josevka-book/josevka-book-regular.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('josevka-book/josevka-book-oblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web Oblique';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	src: url('josevka-book/josevka-book-oblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('josevka-book/josevka-book-italic.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('josevka-book/josevka-book-medium.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('josevka-book/josevka-book-mediumoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web Oblique';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	src: url('josevka-book/josevka-book-mediumoblique.ttf') format('truetype'),
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('josevka-book/josevka-book-mediumitalic.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('josevka-book/josevka-book-semibold.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('josevka-book/josevka-book-semiboldoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web Oblique';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	src: url('josevka-book/josevka-book-semiboldoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('josevka-book/josevka-book-semibolditalic.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('josevka-book/josevka-book-bold.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('josevka-book/josevka-book-boldoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web Oblique';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	src: url('josevka-book/josevka-book-boldoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('josevka-book/josevka-book-bolditalic.ttf') format('truetype'),
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('josevka-book/josevka-book-extrabold.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('josevka-book/josevka-book-extraboldoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web Oblique';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	src: url('josevka-book/josevka-book-extraboldoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('josevka-book/josevka-book-extrabolditalic.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('josevka-book/josevka-book-heavy.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('josevka-book/josevka-book-heavyoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web Oblique';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	src: url('josevka-book/josevka-book-heavyoblique.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Josevka Book Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('josevka-book/josevka-book-heavyitalic.ttf') format('truetype')
+}

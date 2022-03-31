@@ -3,6 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
 
+
 module.exports = {
   content: [
     'layouts/**/*.html',
@@ -59,8 +60,8 @@ module.exports = {
       },
       fontFamily: {
         mono: ['Iosevka Mono Web', defaultTheme.fontFamily.mono],
-        serif: ['"Iosevka Slab Web"', defaultTheme.fontFamily.serif],
-        sans: ['"Iosevka Sans Web"', defaultTheme.fontFamily.sans]
+        serif: ['"Josevka Book Web"', defaultTheme.fontFamily.serif],
+        sans: ['"Josevka Sans Web"', defaultTheme.fontFamily.sans]
       },
          screens: {
         mobile: { max: '1023px'}
@@ -68,8 +69,8 @@ module.exports = {
     },
   },
   plugins: [
-      require('@savvywombat/tailwindcss-grid-areas'),
+    require('@savvywombat/tailwindcss-grid-areas'),
     require('@tailwindcss/typography'),
-    require('tailwind-scrollbar'),
+    require('./plugins/scrollbar')
   ],
 }

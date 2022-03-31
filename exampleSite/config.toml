@@ -11,6 +11,7 @@ enableInlineShortcodes = true
 ignoreErrors = ["error-remote-getjson"]
 theme = "omniscient"
 themesDir="../../"
+pygmentsUseClasses=true
 
 [menu]
 

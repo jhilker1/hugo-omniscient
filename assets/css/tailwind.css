@@ -1,11 +1,3 @@
-/*  Custom Font Imports */
-
-@import url("/fonts/iosevka-mono.css");
-@import url("/fonts/josevka-book.css");
-@import url("/fonts/josevka-sans.css");
-
-@import url("/css/syntax.css");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

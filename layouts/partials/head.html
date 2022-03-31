@@ -5,12 +5,7 @@
 
     {{/*  Main CSS  */}}
     {{ $style := resources.Get "css/style.css" }}
-  {{ if .Site.IsServer }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ else }}
-  {{ $style := $style | minify | fingerprint | resources.PostProcess }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
-  {{ end }}
 
   <!--  Nord CSS --> 
   <!-- {{ $syntax := resources.Get "css/syntax.css" }} -->
